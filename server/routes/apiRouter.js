@@ -1,15 +1,15 @@
-const axios = require('axios');
 const express = require('express');
+const fs = require('fs');
 
 const router = express.Router();
 
-router.get('/', async (req, res) => {
+router.get('/vacancies', async (req, res) => {
   try {
-    const a = 'myaw'
-    console.log(a);
+    const contents = fs.readFileSync('../server/parsing/vacancies.json');
+    const jsonContent = JSON.parse(contents);
+    res.json(jsonContent.source.vacancies);
   } catch (error) {
-    console.log(error.message);
-    res.sendStatus(500);
+    console.log(error);
   }
 });
 
