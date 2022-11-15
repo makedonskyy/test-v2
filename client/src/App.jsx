@@ -1,20 +1,19 @@
 import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
 import Vacancies from './Vacancies';
 import Main from './Main';
+import vacancy from './test.json';
+import PersonForm from './Form';
 
 function App() {
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(setVacanciesAsync());
-  // }, []);
-  // const data = useSelector((state) => state.vacancies);
+  const data = vacancy.source.vacancies[0].vacancy;
+  console.log(data[0].updatedate[0]);
   return (
     <div className="container">
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/vacancies" element={<Vacancies />} />
+        <Route path="/vacancies" element={<Vacancies data={data} />} />
+        <Route path="/form" element={<PersonForm />} />
       </Routes>
     </div>
   );

@@ -13,7 +13,7 @@ export default function OneVacancy({ vacancy }) {
 }
 
         </h6>
-        <Link to={`/vacancies/${vacancy.updatedate[0]}`} className="btn btn-secondary">Подробнее</Link>
+        <Link to="/form" className="btn btn-secondary">Подробнее</Link>
       </div>
     </div>
   );
